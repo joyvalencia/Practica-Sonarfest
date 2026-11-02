@@ -11,12 +11,19 @@ use Illuminate\View\View;
 
 class EntradaController extends Controller
 {
-   public function mevesentrades(): View{
-       $entrades = Entrada::with(['concert.artista'])
+    public function mevesentrades(): View {
+        $entrades = Entrada::with(['concert.artista'])
             ->where('user_id', Auth::id())
+            ->orderBy(
+                Concert::select('data_hora')
+                    ->whereColumn('concerts.id', 'entradas.concert_id'),
+                'asc'
+            )
             ->get();
-       return view('entrades.meves', compact('entrades'));
+
+        return view('entrades.meves', compact('entrades'));
     }
+
 
     public function create(Concert $concert): View{
        $concert->load('artista', 'escenari');
