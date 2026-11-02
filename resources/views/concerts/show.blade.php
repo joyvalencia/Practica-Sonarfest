@@ -42,5 +42,30 @@
                 <p style="color: #9ca3af; font-style: italic;">Aquest concert no té cap escenari assignat.</p>
             @endif
         </div>
+        <!-- Secció: Gestió d'entrades -->
+        <div style="background: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb; margin-top: 20px;">
+
+            <h3 style="margin-top: 0; color: #374151;">Entrades</h3>
+
+            <p>
+                <strong>Entrades venudes:</strong>
+                {{ $concert->entrades->count() }}
+            </p>
+
+            <p>
+                <a href="{{ route('entrades.create', $concert) }}"
+                   style="background: #22c55e; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; display: inline-block; font-weight: bold;">
+                    Comprar entrada
+                </a>
+            </p>
+
+            <p>
+                <a href="{{ route('entrades.assistents', $concert) }}"
+                   style="color: #2563eb; text-decoration: underline;">
+                    Veure assistents
+                </a>
+            </p>
+
+        </div>
     </div>
 @endsection
