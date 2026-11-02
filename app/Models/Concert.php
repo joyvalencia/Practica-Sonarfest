@@ -6,6 +6,7 @@ use App\Enums\TipusConcert;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo; // OBLIGATORI
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Concert extends Model
 {
@@ -38,4 +39,7 @@ class Concert extends Model
         return $this->belongsTo(Escenari::class);
     }
 
+    public function entrades(): HasMany{
+        return $this->hasMany(Entrada::class);
+    }
 }
