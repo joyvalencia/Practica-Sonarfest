@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Entrada extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'concert_id',
+        'preu_pagat',
+        'codi_entrada'
+    ];
+
     protected static function boot()
     {
         parent::boot();
