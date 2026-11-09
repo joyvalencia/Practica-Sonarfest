@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             ArtistaSeeder::class,
             EscenariSeeder::class,
             ConcertSeeder::class,
+            UserSeeder::class,
             EntradaSeeder::class,
         ]);
     }

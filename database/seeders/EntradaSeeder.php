@@ -12,7 +12,7 @@ class EntradaSeeder extends Seeder
     public function run(): void
     {
         // 1. Creem 5 usuaris de prova
-        $usuaris = User::where('id', '>', 1)->take(5)->get();
+        $usuaris = User::orderBy('id')->take(5)->get();
 
         // 2. Agafem els 15 concerts
         $concerts = Concert::orderBy('id')->take(15)->get();
